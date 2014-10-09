@@ -1,0 +1,13 @@
+<h1>View Post</h1>
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+ 
+<p>
+  <strong>Link:</strong>
+  <a href="<%= @post.link %>"><%= @post.link %></a>
+</p>
+
+<%= link_to 'Edit Post', edit_post_path %>
+<%= link_to 'View All Posts', posts_path %>
