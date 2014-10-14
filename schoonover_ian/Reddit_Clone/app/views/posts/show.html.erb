@@ -1,4 +1,3 @@
-<h1>View Post</h1>
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
@@ -6,8 +5,14 @@
  
 <p>
   <strong>Link:</strong>
-  <a href="<%= @post.link %>"><%= @post.link %></a>
+  <%= @post.link %>
 </p>
 
-<%= link_to 'Edit Post', edit_post_path %>
-<%= link_to 'View All Posts', posts_path %>
+<h2>Comments</h2>
+<%= render @post.comments %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+
+<%= link_to 'Back', posts_path %>
+| <%= link_to 'Edit', edit_post_path(@post) %>
