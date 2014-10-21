@@ -1,0 +1,7 @@
+<h1>Labels Index</h1>
+
+<% @labels.each do |label| %>
+<li><%= label.name %> | <%= link_to 'View Artists', label_artists_path(label) %> | <%= link_to 'Add Artist', new_label_artist_path(label) %> | <%= link_to 'Edit', edit_label_path(label) %> | <%= link_to 'Delete', label_path(label),
+						method: :delete, data: { confirm: 'Are you sure?' } %></li>
+<% end %>
+<p><%= link_to 'Add New Label', new_label_path %></p>

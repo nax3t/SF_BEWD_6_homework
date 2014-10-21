@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  resources :labels do
+    resources :artists
+  end
+
+  resources :artists do
+    resources :songs
+  end
+
+  root "labels#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

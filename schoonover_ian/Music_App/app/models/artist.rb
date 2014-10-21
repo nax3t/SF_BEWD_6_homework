@@ -1,3 +1,4 @@
 class Artist < ActiveRecord::Base
-	has_many :songs
+	belongs_to :label
+	has_many :songs, dependent: :destroy
 end

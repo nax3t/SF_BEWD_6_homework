@@ -1,0 +1,11 @@
+<h1>New Artist</h1>
+
+<%= form_for([@label, @label.artists.new]) do |f| %>
+<p>
+	Name: <%= f.text_field :name %>
+</p>
+	<%= f.submit %>
+<% end %>
+<p>
+<%= link_to 'Back', artists_path %>
+</p>
