@@ -1,0 +1,25 @@
+<h1>Listing posts</h1>
+<p><%= link_to 'New Post', new_post_path %></p>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= post.title %></td>
+      <td><%= post.link %></td>
+      <td><%= pluralize(post.votes.count, "vote") %></td>
+    <td><%= button_to '-1', downvote_post_path(post), method: :delete %></td>
+    <td><%= button_to '+1', upvote_post_path(post), method: :post %></td>
+        <td><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Show', post_path(post) %></td>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Delete', post_path(post),
+      								method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
