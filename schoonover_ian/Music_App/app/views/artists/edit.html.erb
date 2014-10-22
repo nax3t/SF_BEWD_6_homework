@@ -1,8 +1,9 @@
 <h1>Edit Artist</h1>
 
-<%= form_for(@artist) do |f| %>
+<%= form_for([@label, @artist]) do |f| %>
 	Name: <%= f.text_field :name %>
 	<%= f.submit %>
 <% end %>
-
-<%= link_to 'Back', artists_path %>
+<p>
+<%= link_to 'Back', label_artists_path(@label) %>
+</p>

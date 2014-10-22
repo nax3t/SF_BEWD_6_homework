@@ -4,6 +4,10 @@ class ArtistsController < ApplicationController
     @artists = @label.artists.all
   end
 
+  def show
+    @artist = Artist.find(params[:id])
+  end
+
   def new
     @label = Label.find(params[:label_id])
     @artist = Artist.new
@@ -16,24 +20,26 @@ class ArtistsController < ApplicationController
   end
 
   def edit
+    @label = Label.find(params[:label_id])
     @artist = Artist.find(params[:id])
   end
 
   def update
-    @artist = Artist.find(params[:id])
+    @label = Label.find(params[:label_id])
+    @artist = @label.artists.find(params[:id])
 
     if @artist.update(artist_params)
-      redirect_to artists_path
+      redirect_to label_artists_path(@label)
    else
       render 'edit'
     end
   end
 
   def destroy
+    @label = Label.find(params[:label_id])
     @artist = Artist.find(params[:id])
     @artist.destroy
-
-    redirect_to artists_path
+    redirect_to label_artists_path(@label)
   end
   
   private
