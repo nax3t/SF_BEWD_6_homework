@@ -3,8 +3,9 @@
 <% @songs.each do |song| %>
 	<li><%= song.title %> | <%= link_to 'Edit', edit_artist_song_path(@artist, song) %> | <%= link_to 'Delete', artist_song_path(@artist, song), method: :delete, data: { confirm: 'Are you sure?' } %></li>
 <% end %>
-<br>
+<p>
 <%= link_to "Add New Song", new_artist_song_path(@artist) %>
+</p>
 <p>
 <%= link_to 'Back', artist_path(@artist) %>
 </p>
