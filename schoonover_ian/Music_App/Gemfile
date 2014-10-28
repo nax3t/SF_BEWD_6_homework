@@ -42,3 +42,7 @@ gem 'autoprefixer-rails'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 gem 'rapgenius'
+
+gem 'simple_form', '~> 3.0.2'
+
+gem 'pry'

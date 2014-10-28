@@ -1,11 +1,12 @@
 <h1>New Artist</h1>
 
-<%= form_for([@label, @label.artists.new]) do |f| %>
+<%= simple_form_for(@artist, html: {:class => 'form-horizontal'} ) do |f| %>
 <p>
-	Name: <%= f.text_field :name %>
+	<%= f.input :name, label: false, input_html: {:class => 'form-control', placeholder: "Name:"} %>
+	<%= f.association :label %>
 </p>
-	<%= f.submit %>
+	<p><%= f.submit "Submit".html_safe, :class => 'btn btn-lg btn-success' %> </p>
 <% end %>
 <p>
-<%= link_to 'Back', artists_path %>
+<%= link_to 'Back', label_artists_path %>
 </p>

@@ -1,6 +1,7 @@
 class SongsController < ApplicationController
   def index
   	@artist = Artist.find(params[:artist_id])
+    @label = @artist.label
   	@songs = @artist.songs.all
   end
 
@@ -10,7 +11,7 @@ class SongsController < ApplicationController
   end
 
   def create
-  	@artist = Artist.find(params[:artist_id])
+  	@artist = Artist.find(params[:song][:artist_id])
   	song = @artist.songs.create(song_params)
   	redirect_to artist_songs_path(@artist)
   end

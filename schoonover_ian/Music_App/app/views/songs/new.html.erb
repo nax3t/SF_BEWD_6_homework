@@ -1,8 +1,9 @@
 <h1>New Song</h1>
 
-<%= form_for([@artist, @artist.songs.new]) do |f| %>
-	Title: <%= f.text_field :title %>
-	<%= f.submit %>
+<%= simple_form_for(@song, html: {:class => 'form-horizontal'} ) do |f| %>
+	<p><%= f.input :title, label: false, input_html: {:class => 'form-control', placeholder: "Title"} %>
+	<%= f.association :artist %></p>
+	<p><%= f.submit "Submit".html_safe, :class => 'btn btn-lg btn-success' %> </p>
 <% end %>
 
 <p>

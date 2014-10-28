@@ -9,18 +9,18 @@ class ArtistsController < ApplicationController
   end
 
   def new
-    @label = Label.find(params[:label_id])
+    @label = Label.find_by_id params[:label_id]
     @artist = Artist.new
   end
 
   def create
-    @label = Label.find(params[:label_id])
+    @label = Label.find(params[:artist][:label_id])
     @artist = @label.artists.create(artist_params)
     redirect_to label_artists_path(@label)
   end
 
   def edit
-    @label = Label.find(params[:label_id])
+    @label = Label.find_by_id params[:label_id]
     @artist = Artist.find(params[:id])
   end
 
